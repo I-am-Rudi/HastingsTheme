@@ -12,6 +12,10 @@
 
 \usepackage{xspace}
 \newcommand{\themename}{\textbf{\textsc{metropolis}}\xspace}
+\usepackage{FiraSans}
+\usepackage[natbib=true,style=authoryear,backend=biber,useprefix=true]{biblatex}
+
+\addbibresource{demo.bib}
 
 \title{Metropolis}
 \subtitle{A modern beamer theme}
@@ -291,7 +295,7 @@ or show \textbf{bold} results.\end{verbatim}
 }
 
 \begin{frame}{References}
-  Some references to showcase [allowframebreaks] \cite{knuth92,ConcreteMath,Simpson,Er01,greenwade93}
+  Some references to showcase [allowframebreaks] \cite{Knuth92,ConcreteMath,Simpson,Er01,greenwade93}
 \end{frame}
 
 \section{Conclusion}
@@ -329,8 +333,7 @@ or show \textbf{bold} results.\end{verbatim}
 
 \begin{frame}[allowframebreaks]{References}
 
-  \bibliography{demo}
-  \bibliographystyle{abbrv}
+  \printbibliography[heading=none]
 
 \end{frame}
 
