@@ -89,9 +89,13 @@
   \rule[-\metropolis@frametitle@padding]{0pt}{\metropolis@frametitle@padding}
 }
 \setbeamertemplate{progress bar in section page}{
-  \setlength{\metropolis@progressonsectionpage}{%
-    \textwidth * \ratio{\insertframenumber pt}{\inserttotalframenumber pt}%
-  }%
+  \ifmetropolis@inappendix
+    \setlength{\metropolis@progressonsectionpage}{\textwidth}%
+  \else
+    \setlength{\metropolis@progressonsectionpage}{%
+      \textwidth * \ratio{\insertframenumber pt}{\inserttotalframenumber pt}%
+    }%
+  \fi
   \tikzexternaldisable%
   \begin{tikzpicture}
     \fill[bg] (0,0) rectangle (\textwidth, \metropolis@progressonsectionpage@linewidth);
@@ -119,9 +123,13 @@
 \setlength{\metropolis@progressinheadfoot@linewidth}{0.4pt}
 \setbeamertemplate{progress bar in head/foot}{
   \nointerlineskip
-  \setlength{\metropolis@progressinheadfoot}{%
-    \paperwidth * \ratio{\insertframenumber pt}{\inserttotalframenumber pt}%
-  }%
+  \ifmetropolis@inappendix
+    \setlength{\metropolis@progressinheadfoot}{\paperwidth}%
+  \else
+    \setlength{\metropolis@progressinheadfoot}{%
+      \paperwidth * \ratio{\insertframenumber pt}{\inserttotalframenumber pt}%
+    }%
+  \fi
   \begin{beamercolorbox}[wd=\paperwidth]{progress bar in head/foot}
     \tikzexternaldisable%
     \begin{tikzpicture}
@@ -133,10 +141,10 @@
 }
 \AtBeginDocument{%
   \apptocmd{\appendix}{%
+    \metropolis@inappendixtrue
     \pgfkeys{%
       /metropolis/outer/.cd,
-      numbering=none,
-      progressbar=none}
+      numbering=none}
     }{}{}
 }
 \metropolis@outer@setdefaults

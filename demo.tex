@@ -1,6 +1,7 @@
 % !TeX program = xelatex
-\documentclass[10pt]{beamer}
+\documentclass[aspectratio=169,10pt]{beamer}
 
+% Theme settings
 \usetheme{metropolis}
 \usepackage{appendixnumberbeamer}
 
@@ -11,19 +12,57 @@
 \usepgfplotslibrary{dateplot}
 
 \usepackage{xspace}
-\newcommand{\themename}{\textbf{\textsc{metropolis}}\xspace}
-\usepackage{FiraSans}
-\usepackage[natbib=true,style=authoryear,backend=biber,useprefix=true]{biblatex}
+%\usepackage{FiraSans}
+
+% Packages
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{physics}
+\usepackage{tikz}
+\usepackage{bm}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage[export]{adjustbox}
+\usepackage{subcaption}
+
+\usepackage[style=authoryear]{biblatex}
+
+\let\svthefootnote\thefootnote
+\textheight 1in
+\newcommand\blankfootnote[1]{%
+  \let\thefootnote\relax\footnotetext{#1}%
+  \let\thefootnote\svthefootnote%
+}
+\metroset{block=fill}
+
+% Custom highlight command
+\newcommand{\highlight}[1]{{\color{mLightOrange}#1}}
+
+% remove blocktitle (insert into blocktitle brackets)
+\newcommand{\removeblocktitle}{\vspace*{-3ex}}
+\setbeamertemplate{section in toc}[sections numbered]
+
+% new command to give out current size as pt
+\newlength{\textsize}
+\makeatletter
+\setlength{\textsize}{\f@size pt}
+\makeatother
+
+
 
 \addbibresource{demo.bib}
 
-\title{Metropolis}
+\title{Hastings}
 \subtitle{A modern beamer theme}
 \date{\today}
 \author{Matthias Vogelgesang}
 \institute{Center for modern beamer themes}
 % \titlegraphic{\hfill\includegraphics[height=1.5cm]{logo.pdf}}
 
+\newcommand{\themename}{Hastings}
 \begin{document}
 
 \maketitle
@@ -35,7 +74,7 @@
 
 \section{Introduction}
 
-\begin{frame}[fragile]{Metropolis}
+\begin{frame}[fragile]{Hastings}
 
   The \themename theme is a Beamer theme with minimal visual noise
   inspired by the \href{https://github.com/hsrmbeamertheme/hsrmbeamertheme}{\textsc{hsrm} Beamer

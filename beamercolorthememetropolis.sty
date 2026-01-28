@@ -39,7 +39,7 @@
 }
 \definecolor{mDarkBrown}{HTML}{604c38}
 \definecolor{mDarkTeal}{HTML}{23373b}
-\definecolor{mLightBrown}{HTML}{EB811B}
+\definecolor{mLightOrange}{HTML}{EB811B}
 \definecolor{mLightGreen}{HTML}{14B03D}
 \newcommand{\metropolis@colors@dark}{
   \setbeamercolor{normal text}{%
@@ -55,7 +55,7 @@
   }
 }
 \setbeamercolor{alerted text}{%
-  fg=mLightBrown
+  fg=mLightOrange
 }
 \setbeamercolor{example text}{%
   fg=mLightGreen
@@ -113,17 +113,23 @@
   }
 }
 \setbeamercolor{block title alerted}{%
-    use={block title, alerted text},
-    bg=block title.bg,
-    fg=alerted text.fg
+    use={alerted text, normal text},
+    bg=alerted text.fg!70!white,
+    fg=normal text.fg
 }
 \setbeamercolor{block title example}{%
-    use={block title, example text},
-    bg=block title.bg,
-    fg=example text.fg
+    use={example text, normal text},
+    bg=example text.fg!50!white,
+    fg=normal text.fg
 }
-\setbeamercolor{block body alerted}{use=block body, parent=block body}
-\setbeamercolor{block body example}{use=block body, parent=block body}
+\setbeamercolor{block body alerted}{%
+    use=alerted text,
+    bg=alerted text.fg!20!white
+}
+\setbeamercolor{block body example}{%
+    use=example text,
+    bg=example text.fg!15!white
+}
 \setbeamercolor{footnote}{fg=normal text.fg!90}
 \setbeamercolor{footnote mark}{fg=.}
 \setbeamercolor{bibliography entry author}{fg=, bg=}

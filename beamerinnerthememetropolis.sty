@@ -180,10 +180,16 @@
 \newlength{\metropolis@progressonsectionpage}
 \newlength{\metropolis@progressonsectionpage@linewidth}
 \setlength{\metropolis@progressonsectionpage@linewidth}{0.4pt}
+\newif\ifmetropolis@inappendix
+\metropolis@inappendixfalse
 \setbeamertemplate{progress bar in section page}{
-  \setlength{\metropolis@progressonsectionpage}{%
-    \textwidth * \ratio{\insertframenumber pt}{\inserttotalframenumber pt}%
-  }%
+  \ifmetropolis@inappendix
+    \setlength{\metropolis@progressonsectionpage}{\textwidth}%
+  \else
+    \setlength{\metropolis@progressonsectionpage}{%
+      \textwidth * \ratio{\insertframenumber pt}{\inserttotalframenumber pt}%
+    }%
+  \fi
   \tikzexternaldisable%
   \begin{tikzpicture}
     \fill[bg] (0,0) rectangle (\textwidth, \metropolis@progressonsectionpage@linewidth);
